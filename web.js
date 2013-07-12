@@ -3,7 +3,20 @@ var express = require('express');
 var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
-  response.send('Hello World5 !');
+  
+
+  fs = require('fs')
+  var rFile = fs.readFile('index.html', 'utf8', function (err,data) {
+  if (err) {
+    return console.log(err);
+  }
+  console.log("working    " +data);
+//  console.log(rFile);
+ 
+
+
+    response.send(data);
+  });
 });
 
 
